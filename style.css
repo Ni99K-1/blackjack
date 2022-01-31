@@ -1,0 +1,68 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(0, 0, 0);
+    /* background-image: url("./jessicarabbit.jpg"); */
+    background-size: cover;
+    text-align: center;
+    color:rgb(153, 180, 110);
+    font-weight: bold;
+    font-size: 35px;
+    display:grid;
+    grid-template-columns: auto;
+   
+}
+#header-1{
+    color:palegoldenrod;
+    font-size: 50px;
+}
+#message-el{
+    font-style: italic;
+}
+#play-btn{
+    align-items: center;
+    color:#016f32;
+    width:150px;
+    font-size: 50px;
+    background-color: goldenrod;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-weight: bold;
+    border:none;
+    border-radius: 12px;
+    cursor:pointer;
+}
+#card-el{
+    color:rgb(253, 253, 253);
+    font-size: 35px;
+    display: block;
+}
+#sum-el{
+    color:rgb(253, 253, 253);
+    font-size: 35px;
+}
+#newCard-el{
+    align-items: center;
+    color:#016f32;
+    width:150px;
+    font-size: 32px;
+    background-color: goldenrod;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-top: 10px;
+    font-weight: bold;
+    border:none;
+    border-radius: 12px;
+}
+#showCard-el{
+    align-items: center;
+    color:#016f32;
+    width:170px;
+    font-size: 32px;
+    background-color: goldenrod;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-top: 10px;
+    font-weight: bold;
+    border:none;
+    border-radius: 12px;
+}
