@@ -39,9 +39,6 @@ function startGame(){
     let previousSum= sum;
     sumEl.textContent="Result: "+ sum +" ";
 
-    // for(i=0;i<cards.length;i++){
-    //    console.log[i];
-    // }
 
     cardEl.textContent="Cards: "+ firstCard + " & " + secondCard;
 
@@ -92,64 +89,3 @@ function noStart(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//    let hasSolvedChallenge=false;
-//    let hasHintsLeft= true;
-
-//    function showSolution(){
-//        if (hasSolvedChallenge==true && hasHintsLeft==false){
-//            console.log("Congratulations Challenge has been solved")
-//        }else if(hasHintsLeft==true && hasSolvedChallenge==false){
-//            console.log("want to use your hint")
-//        } else {
-//                console.log("showing the solution.....")
-//        }
-//    }
-
-//    console.log(showSolution())
-
-
-
-//1,1,2,3,5
-
-// const number = parseInt(prompt('Enter the number2 of terms:'));
-// let n1=1, n2=1 , nextTerm;
-
-// console.log('Fibonnaci Series:');
-
-// for(let i=1;i<=number;i++){
-//     console.log(n1);
-//     nextTerm=n1+n2;
-//     n1=n2;
-//     n2=nextTerm;
-// }
-
-// let newState;
-// let newCardEl=document.querySelector("#sum-el","#card-el");
-// function newCard(){
-//     newState=sum;
-//     newCardEl.innerContent+=newState;
-//     let sumEl.textContent+=" ";
-//     sum=0;
-//     console.log(sum)
-// }
-// let numberN=1;
-// let nextNumber=1;
-// let temp
-// for(let i=1;i<=numberN;i++){
-//     temp=numberN+nextNumber;
-//     numberN=nextNumber;
-//     nextNumber=temp;
-    
-// }console.log(temp);
