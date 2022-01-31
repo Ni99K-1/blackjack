@@ -66,9 +66,9 @@ body{
     border:none;
     border-radius: 12px;
 }
-#prev-display{
+/* #prev-display{
    
- }
+ } */
  #display-sum{
     display:flex;
     flex-direction: wrap;
