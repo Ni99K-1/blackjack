@@ -2,17 +2,15 @@ let isAlive=false;
 let hasBlackJack=false;
 let sum=0;
 let cards=[];
-let playerChips=10;
+let playerChips=[25];
 
 function credits(){
-    let newCredit=0;
+    let newCredit;
     let creditEl=document.getElementById("credits-el");
     if (playerChips>=1){
-        playerChips-=1;
         newCredit=playerChips;
         creditEl.textContent="Credits: $"+ newCredit;
-        // creditEl.textContent="Credits: $"+ playerChips;
-        // console.log(playerChips);
+        playerChips--;
     } else{
         creditEl.textContent="Please Insert Credit!!"
         noStart();
@@ -45,7 +43,7 @@ function startGame(){
     //    console.log[i];
     // }
 
-    cardEl.textContent="Cards: "+ firstCard + " & " +secondCard;
+    cardEl.textContent="Cards: "+ firstCard + " & " + secondCard;
 
     //calling function renderGame()
 
@@ -56,37 +54,34 @@ function startGame(){
 
 }
 function renderGame(){
-
+    let prize=100;
     let message="";
     let messageEl=document.getElementById("message-el");
-
     if (sum<21){
         message="Please draw another Card!"
     }else if (sum==21){
-        
         message= "Congratulations You have a Black Jack";
-        credits.push(100)
+        // playerChips.push(100);
         hasBlackJack=true;
     }else {
          message= "You lost";
          isAlive=false;
     }
     messageEl.textContent=message;
-
     console.log(message);
 }
 
 function newCard(){
     if (isAlive===true && hasBlackJack===false){
         let card= startGame();
-        sum+= card + "+" ;
+        sum+= card;
         cards.push(card)
         renderGame();
     }
 }
 
 function noStart(){
-   $("#play-btn, #newCard-el").trigger('reset');
+   $("#play-btn", "#newCard-el").trigger('reset');
 };
 
 

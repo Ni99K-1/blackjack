@@ -66,3 +66,15 @@ body{
     border:none;
     border-radius: 12px;
 }
+#prev-display{
+   
+ }
+ #display-sum{
+    display:flex;
+    flex-direction: wrap;
+    border:2px rgb(255, 255, 255);
+    font-size: 15px;
+    color:rgb(104, 15, 15);
+    height:50vh;
+    align-self: center;
+ }
