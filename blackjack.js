@@ -1,90 +1,109 @@
+
+//array-ordered list of items
+
+let cards=[];
+let sum=0;
+let message="";
 let isAlive=false;
 let hasBlackJack=false;
-let sum=0;
-let cards=[];
-let playerChips=[25];
+let messageEl=document.getElementById("message-el");
+let sumEL=document.querySelector('#sum-el');
+let cardEl=document.querySelector('#card-el');
 
-function credits(){
-    let newCredit;
-    let creditEl=document.getElementById("credits-el");
-    if (playerChips>=1){
-        newCredit=playerChips;
-        creditEl.textContent="Credits: $"+ newCredit;
-        playerChips--;
-    } else{
-        creditEl.textContent="Please Insert Credit!!"
-        noStart();
-  };
-};
-function startGame(){
-    credits();
-    isAlive=true;
-    let firstCard=getRandomNumber();
-    let secondCard=getRandomNumber();
-    let sumEl=document.getElementById("sum-el");
-    let cardEl=document.getElementById('card-el');
-    let newSumEl=document.getElementById("display-sum");
-
-    function getRandomNumber(){
-        let randomNumber = Math.floor(Math.random()*13)+1;
-        if (randomNumber>=11){
-            return 10
-        }else if(randomNumber==1){
-            return 11;
-        }else {
-            return randomNumber;
-        };
+//object
+let player={
+ name:"Nirakar ",
 }
-    sum=firstCard+secondCard;
-    let previousSum= sum;
-    sumEl.textContent="Result: "+ sum +" ";
+let playerEl=document.querySelector('#player-el');
+playerEl.textContent+=player.name;
 
-
-    cardEl.textContent="Cards: "+ firstCard + " & " + secondCard;
-
-    //calling function renderGame()
-
-    renderGame();
-
-    newSumEl.textContent+="  " + previousSum + " | ";
-    previousSum=0;
-
-}
-function renderGame(){
-    let prize=100;
-    let message="";
-    let messageEl=document.getElementById("message-el");
-    if (sum<21){
-        message="Please draw another Card!"
-    }else if (sum==21){
-        message= "Congratulations You have a Black Jack";
-        // playerChips.push(100);
-        hasBlackJack=true;
-    }else {
-         message= "You lost";
-         isAlive=false;
+function getRandomCard(){
+    let randomNumber= Math.floor(Math.random()*13)+1;
+    if (randomNumber>10){
+        return 10;
+    }else if(randomNumber===1){
+        return 11;
+    }else{
+        return randomNumber;
     }
-    messageEl.textContent=message;
-    console.log(message);
+}
+
+ 
+
+ function startGame(){
+      
+    isAlive=true;
+    let firstCard=getRandomCard();
+    let secondCard=getRandomCard();
+    cards=[firstCard,secondCard]
+    sum= firstCard+secondCard;
+    renderGame();  
+    
+}
+    function endGame(){
+       messageEl.textContent="Please insert credit or Refresh the Page";
+       alert("You lost all your Credits :( ,restarting game");
+       window.location.reload(true);
+        
+    }
+let chips=10;
+let j=1;
+let chipsEl=document.getElementById("chips-el")
+
+function renderGame(){ 
+
+
+    if(j<=chips){
+        chips--;
+    }else if(j>chips){
+        return endGame();
+    }
+
+    chipsEl.textContent="$ "+ chips;
+
+
+       
+    hasBlackJack=false;
+    cardEl.textContent="Cards: "
+    
+    for(let i=0;i<cards.length;i++){
+        cardEl.textContent+= " " + cards[i]
+        console.log(cards[i])
+    }
+    sumEL.textContent="Sum: "+ sum;
+
+        if(sum<=20){
+            message="Please Draw a new card?"
+                     
+        } else if (sum === 21){
+            message="Congratualtions you have a Black Jack \n You Won: $20";
+            chips+=20;
+            hasBlackJack=true;
+        }else {
+            message="Sorry You Lost! \n Hit Play to Continue Playing";
+           
+            isAlive=false;
+        };
+
+    
+
+   
+    
+    messageEl.textContent= message;
+   
+
+    
 }
 
 function newCard(){
-    if (isAlive===true && hasBlackJack===false){
-        let card= startGame();
-        sum+= card;
-        cards.push(card)
-        renderGame();
+    if(isAlive==true && hasBlackJack==false){
+    console.log("drawing New Card")
+       let card=getRandomCard();
+       sum+=card;
+       cards.push(card)
+       renderGame();
     }
-}
-
-function noStart(){
-   $("#play-btn", "#newCard-el").trigger('reset');
 };
-
-
-
-
-
 
 
 
