@@ -12,7 +12,7 @@ let cardEl=document.querySelector('#card-el');
 
 //object
 let player={
- name:"Nirakar ",
+ name:"Credits",
 }
 let playerEl=document.querySelector('#player-el');
 playerEl.textContent+=player.name;
